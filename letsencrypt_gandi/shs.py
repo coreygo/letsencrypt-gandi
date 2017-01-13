@@ -256,8 +256,7 @@ class GandiSHSConfigurator(common.Plugin):
 
     def _upload_tmpfile(self, tmpfile, user, sftp_url, path, destfile, mkdir):
 
-        process = ['sftp', '-b', '-',
-                    '-o', 'UserKnownHostsFile={home}/.ssh/known_hosts'.format(home=get_user_environment()['HOME']),
+        process = ['sftp', '-o', 'UserKnownHostsFile={home}/.ssh/known_hosts'.format(home=get_user_environment()['HOME']),
                    '{user}@{sftp_url}'.format(user=user, sftp_url=sftp_url)]
 
         logger.info("sftp %s", process)
@@ -295,8 +294,7 @@ class GandiSHSConfigurator(common.Plugin):
         """
         content = None
 
-        process = ['sftp', '-b', '-',
-                   '-o', 'UserKnownHostsFile={home}/.ssh/known_hosts'.format(home=get_user_environment()['HOME']),
+        process = ['sftp', '-o', 'UserKnownHostsFile={home}/.ssh/known_hosts'.format(home=get_user_environment()['HOME']),
                    '{user}@{sftp_url}'.format(user=user, sftp_url=sftp_url)]
 
         sftp = subprocess.Popen(process, stdin=subprocess.PIPE, close_fds=True,
@@ -347,8 +345,7 @@ class GandiSHSConfigurator(common.Plugin):
         :rtype: None
         """
 
-        process = ['sftp', '-b', '-',
-                   '-o', 'UserKnownHostsFile={home}/.ssh/known_hosts'.format(home=get_user_environment()['HOME']),
+        process = ['sftp', '-o', 'UserKnownHostsFile={home}/.ssh/known_hosts'.format(home=get_user_environment()['HOME']),
                    '{user}@{sftp_url}'.format(user=user, sftp_url=sftp_url)]
 
         sftp = subprocess.Popen(process, stdin=subprocess.PIPE, close_fds=True,
@@ -388,8 +385,7 @@ class GandiSHSConfigurator(common.Plugin):
         dirs.reverse()
         path = dirs[0] + "/" + achall.chall.encode("token")
 
-        process = ['sftp', '-b', '-',
-                   '-o', 'UserKnownHostsFile={home}/.ssh/known_hosts'.format(home=get_user_environment()['HOME']),
+        process = ['sftp', '-o', 'UserKnownHostsFile={home}/.ssh/known_hosts'.format(home=get_user_environment()['HOME']),
                    '{user}@{sftp_url}'.format(user=user, sftp_url=sftp_url)]
 
         logger.info("sftp %s", process)
