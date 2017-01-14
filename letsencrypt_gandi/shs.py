@@ -237,8 +237,7 @@ class GandiSHSConfigurator(common.Plugin):
 
     def _try_shs_auth(self, user, sftp_url):
 
-        process = ['sftp',
-                   '-o', 'UserKnownHostsFile={home}/.ssh/known_hosts'.format(home=get_user_environment()['HOME']),
+        process = ['sftp', '-o', 'UserKnownHostsFile={home}/.ssh/known_hosts'.format(home=get_user_environment()['HOME']),
                    '{user}@{sftp_url}'.format(user=user, sftp_url=sftp_url)]
 
         logger.info("sftp %s", process)
